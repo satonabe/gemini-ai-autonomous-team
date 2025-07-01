@@ -1,0 +1,10 @@
+{
+  "name": "claude-gemini-integration",
+  "version": "1.0.0",
+  "type": "module",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.13.2",
+    "fs-extra": "^11.0.0",
+    "zod": "^3.22.0"
+  }
+}
