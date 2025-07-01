@@ -34,23 +34,40 @@ gemini-ai-autonomous-team/
   "mcpServers": {
     "claude": {
       "command": "node",
-      "args": ["/Users/{your_username}/gemini-ai-autonomous-team/scripts/mcp-claude-gemini-bridge.js"],
-      "env": {"NODE_ENV": "production"}
+      "args": [
+        "/Users/YOUR_USERNAME/gemini-ai-autonomous-team/scripts/mcp-claude-gemini-bridge.js"
+      ],
+      "env": {
+        "NODE_ENV": "production"
+      }
     },
     "filesystem": {
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/Users/{your_username}/gemini-ai-autonomous-team"]
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/Users/YOUR_USERNAME/gemini-ai-autonomous-team",
+        "/Users/YOUR_USERNAME/Desktop",
+        "/Users/YOUR_USERNAME/Documents"
+      ]
     },
     "github": {
       "command": "npx",
-      "args": ["-y", "@modelcontextprotocol/server-github"],
-      "env": {"GITHUB_PERSONAL_ACCESS_TOKEN": "{your_github_token}"}
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-github"
+      ],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "YOUR_GITHUB_TOKEN_HERE"
+      }
     }
   }
 }
 ```
 
-**⚠️ 重要**: `{your_username}` と `{your_github_token}` を実際の値に置換してください。
+**⚠️ 重要**: 
+- `YOUR_USERNAME` を実際のmacOSユーザー名に置換
+- `YOUR_GITHUB_TOKEN_HERE` を実際のGitHubトークンに置換
 
 ## 🎯 クイックスタート
 
