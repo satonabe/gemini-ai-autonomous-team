@@ -46,7 +46,7 @@ cp .env.example .env
     "claude": {
       "command": "node",
       "args": [
-        "/path/to/gemini-ai-autonomous-team/scripts/mcp-claude-gemini-bridge.js"
+        "/Users/{your_username}/gemini-ai-autonomous-team/scripts/mcp-claude-gemini-bridge.js"
       ],
       "env": {
         "NODE_ENV": "production"
@@ -57,7 +57,9 @@ cp .env.example .env
       "args": [
         "-y",
         "@modelcontextprotocol/server-filesystem",
-        "/path/to/gemini-ai-autonomous-team"
+        "/Users/{your_username}/gemini-ai-autonomous-team",
+        "/Users/{your_username}/Desktop",
+        "/Users/{your_username}/Documents"
       ]
     },
     "github": {
@@ -67,16 +69,28 @@ cp .env.example .env
         "@modelcontextprotocol/server-github"
       ],
       "env": {
-        "GITHUB_PERSONAL_ACCESS_TOKEN": "your_github_token"
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "{your_github_personal_access_token}"
       }
     }
   }
 }
 ```
 
-**重要**: `/path/to/` を実際のパスに置換してください。
+**重要**: 
+- `{your_username}` を実際のmacOSユーザー名に置換してください
+- `{your_github_personal_access_token}` を実際のGitHubトークンに置換してください
 
-### 5. Claude Desktop 再起動
+### 5. GitHub Personal Access Token作成
+
+1. **GitHub.com** → **Settings** → **Developer settings** → **Personal access tokens** → **Tokens (classic)**
+2. **Generate new token (classic)**
+3. **権限選択**:
+   - ✅ `repo` (Full control of private repositories)
+   - ✅ `workflow` (Update GitHub Action workflows)
+   - ✅ `write:org` (Write org and team membership)
+4. **トークンをコピーして上記設定に使用**
+
+### 6. Claude Desktop 再起動
 
 設定後、Claude Desktop を完全に再起動してください。
 
@@ -93,6 +107,7 @@ chmod +x scripts/start-5panel-system.sh
 1. **ツールアイコン確認**: 入力欄近くの🔧アイコン
 2. **Geminiシステム起動**: 「Geminiシステムを起動してください」
 3. **プロジェクト作成**: 「新しいWebアプリを作成してください」
+4. **GitHub連携**: 「このプロジェクトをGitHubにプッシュしてください」
 
 ## 🔧 トラブルシューティング
 
@@ -100,6 +115,7 @@ chmod +x scripts/start-5panel-system.sh
 - Node.js がインストールされているか確認: `node --version`
 - 設定ファイルのJSON構文を確認
 - Claude Desktop を完全再起動
+- パスが正しいか確認: `ls /Users/{your_username}/gemini-ai-autonomous-team/scripts/`
 
 ### Gemini システムが起動しない
 - tmux がインストールされているか確認: `tmux -V`
@@ -109,6 +125,16 @@ chmod +x scripts/start-5panel-system.sh
 - Personal Access Token の権限確認
 - トークンの有効期限確認
 - 環境変数の設定確認
+
+### パス設定例 (macOS)
+```bash
+# ホームディレクトリ確認
+echo $HOME
+# 結果例: /Users/john_doe
+
+# 設定例
+"/Users/john_doe/gemini-ai-autonomous-team/scripts/mcp-claude-gemini-bridge.js"
+```
 
 ## 📚 詳細ドキュメント
 
